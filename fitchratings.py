@@ -47,7 +47,6 @@ for x in range(12):
         # print(table.get_text())
         print("==========================")
 
-
     driver.find_element_by_link_text("Next").click()
     time.sleep(5)
     all_html = driver.page_source
