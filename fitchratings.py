@@ -3,13 +3,6 @@ import os
 import shutil
 from selenium import webdriver
 from datetime import datetime
-# datestring = datetime.strftime(datetime.now(), '(%Y-%m-%d)-(%H.%M.ss)')
-# from selenium.webdriver.support import expected_conditions as EC
-# from selenium.webdriver.support.ui import WebDriverWait
-# from selenium.webdriver.common.by import By
-# from selenium.webdriver.support import expected_conditions as EC
-# from selenium import webdriver
-# from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
 import urllib.request
 import requests
