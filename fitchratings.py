@@ -67,7 +67,17 @@ for x in range(13):
         nomor = 1
         list = []
         # a[nomor] = ""
+        
         for list in table.findAll('td'):
+            for stable in list.findAll('span'):
+
+                    classNama = ''.join(stable['class'])
+                    seperateClassName=classNama.replace("alert-descriptionratings-","")
+                    if seperateClassName != "":
+                        #seperateClassName = testing
+                        print(seperateClassName)
+                    else:
+                        print('not found')
            
             # item = list.get_text(separator='\n').split('\n')
             #list
