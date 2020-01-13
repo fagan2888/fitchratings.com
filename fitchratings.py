@@ -115,3 +115,5 @@ for x in range(13):
     # to_print = soup.findAll("tr", attrs={"class":"entity-row showPointer"})
 
     # print(to_print)
+
+#tes
