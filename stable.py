@@ -67,41 +67,52 @@ for x in range(13):
         nomor = 1
         list = []
         # a[nomor] = ""
+        
         for list in table.findAll('td'):
+            
+            for stable in list.findAll('span'):
+
+                    classNama = ''.join(stable['class'])
+                    seperateClassName=classNama.replace("alert-descriptionratings-","")
+                    if seperateClassName != "":
+                        #seperateClassName = testing
+                        print(seperateClassName)
+                    else:
+                        print('not found')
            
             # item = list.get_text(separator='\n').split('\n')
             #list
-            if nomor == 1:
-                item = list.get_text().replace("Ultimate Parent","").replace("LATEST RATING ACTION COMMENTARY","").replace("VIEW RESEARCH","")
-            else:
-                item = list.get_text(separator=' ')
-            #combine = item+str(nomor)
-            combine = str(nomor)+item
+        #     if nomor == 1:
+        #         item = list.get_text().replace("Ultimate Parent","").replace("LATEST RATING ACTION COMMENTARY","").replace("VIEW RESEARCH","")
+        #     else:
+        #         item = list.get_text(separator=' ')
+        #     #combine = item+str(nomor)
+        #     combine = str(nomor)+item
             
-            bolean_nya = combine.count(substring_idn)
-            if nomor == 2:
-                item = ""
-            if nomor == 4:
-                nomor = 6
-            if nomor == 7 and bolean_nya == 0 :
-                nomor = 11
-            if nomor == 7 and bolean_nya == 1:
-                row = row+1
-                col = 2
-            combine = str(nomor)+item
-            print(combine)
-            # sheet1.write(row, col, item) 
-            # wb.save('fitchratings.xls')
-            nomor = nomor + 1
-            col = col+1
+        #     bolean_nya = combine.count(substring_idn)
+        #     if nomor == 2:
+        #         item = ""
+        #     if nomor ==:
+        #         nomor = 6
+        #     if nomor == 7 and bolean_nya == 0 :
+        #         nomor = 11
+        #     if nomor == 7 and bolean_nya == 1:
+        #         row = row+1
+        #         col = 2
+        #     combine = str(nomor)+item
+        #     print(combine)
+        #     # sheet1.write(row, col, item) 
+        #     # wb.save('fitchratings.xls')
+        #     nomor = nomor + 1
+        #     col = col+1
             
-            # if nomor == 7 0:
+        #     # if nomor == 7 0:
 
             
-            # if nomor = 2:
-            #     print(list.get_text(seperator='\n') 
-        # print(table.get_text())
-        row = row+1
+        #     # if nomor = 2:
+        #     #     print(list.get_text(seperator='\n') 
+        # # print(table.get_text())
+        # row = row+1
         print("==========================")
         col = 0
      
