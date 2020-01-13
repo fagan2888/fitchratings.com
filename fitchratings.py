@@ -72,7 +72,7 @@ for x in range(13):
             # item = list.get_text(separator='\n').split('\n')
             #list
             if nomor == 1:
-                item = list.get_text(separator=' | ')
+                item = list.get_text().replace("Ultimate Parent","").replace("LATEST RATING ACTION COMMENTARY","").replace("VIEW RESEARCH","")
             else:
                 item = list.get_text(separator=' ')
             #combine = item+str(nomor)
