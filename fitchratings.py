@@ -24,7 +24,7 @@ wb = Workbook()
 sheet1 = wb.add_sheet('Sheet 1') 
 
 sheet1.write(0, 0, 'ENTITIY') 
-sheet1.write(0, 2, 'RATING') 
+sheet1.write(0, 1, 'RATING') 
 sheet1.write(0, 3, '') 
 sheet1.write(0, 4, '') 
 sheet1.write(0, 5, '') 
@@ -65,19 +65,51 @@ for x in range(13):
     
     for table in all_table.findAll('tr', attrs={"class":"entity-row showPointer"}):
         nomor = 1
-        list = []
+        #list = []
         # a[nomor] = ""
-        
-        for list in table.findAll('td'):
+        symbol_one = ""
+        symbol_two = ""
+        # outlook = ""
+        # watch = ""
+        for list in table.findAll('tr', attrs={"class":"rating"}):
             for stable in list.findAll('span'):
+                classNama = ''.join(stable['class'])
+                seperateClassName=classNama.replace("alert-descriptionratings-","")
+                if seperateClassName != "":
+                    #seperateClassName = testing
+                    
+                    symbol_one = seperateClassName
+                    spliter = symbol_one.split('-')
+                    print (len(spliter))
+                    # spliter[0] = outlook
+                    # spliter[1] = watch
+                    print(spliter[0].capitalize(), spliter[1].capitalize())
+                    # spliter = symbol_one.split('-')
+                    # print len(spliter)
 
-                    classNama = ''.join(stable['class'])
-                    seperateClassName=classNama.replace("alert-descriptionratings-","")
-                    if seperateClassName != "":
-                        #seperateClassName = testing
-                        print(seperateClassName)
-                    else:
-                        print('not found')
+                    #print(symbol_one)
+                elif  seperateClassName == "":
+                    # symbol_one = "not found"
+                    symbol_two = "-"
+                    #print(symbol_two)
+                # elif  symbol_one == "":
+                #     # symbol_one = "not found"
+                #     symbol_three = "not found"
+                #     #print(symbol_two)
+
+        # print(symbol_one)
+        # print(symbol_two)
+        # print("============")
+        for list in table.findAll('td'):
+            # for stable in list.findAll('span'):
+
+            #         classNama = ''.join(stable['class'])
+            #         seperateClassName=classNama.replace("alert-descriptionratings-","")
+            #         if seperateClassName != "":
+            #             #seperateClassName = testing
+            #             print(seperateClassName)
+            #         elif  seperateClassName == "":
+            #             print('not found')
            
             # item = list.get_text(separator='\n').split('\n')
             #list
@@ -90,15 +122,30 @@ for x in range(13):
             
             bolean_nya = combine.count(substring_idn)
             if nomor == 2:
-                item = ""
+                item = spliter[0].capitalize()
+                if symbol_one == "":
+                    item = "-"
+
+                #seperateClassName == ""
+            if nomor == 3:
+                col = col + 1
             if nomor == 7 and bolean_nya == 0 :
                 nomor = 11
             if nomor == 7 and bolean_nya == 1:
+                item = item 
                 row = row+1
-                col = 2
-            combine = str(nomor)+item
+                col = 3
+                sheet1.write(row, col-1, symbol_two)
+                sheet1.write(row, col-2, symbol_two)
+
+            combine = str(nomor)+" "+ item
             print(combine)
-            sheet1.write(row, col, item) 
+            sheet1.write(row, col, item)
+            if nomor == 2:
+                if symbol_one == "":
+                    item = "-"
+                    spliter[1]="-"
+                sheet1.write(row, col+1, spliter[1].capitalize())
             wb.save('fitchratings.xls')
             nomor = nomor + 1
             col = col+1
@@ -109,6 +156,7 @@ for x in range(13):
             # if nomor = 2:
             #     print(list.get_text(seperator='\n') 
         # print(table.get_text())
+
         row = row+1
         print("==========================")
         col = 0
