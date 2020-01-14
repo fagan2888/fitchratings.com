@@ -65,7 +65,7 @@ for x in range(13):
     
     for table in all_table.findAll('tr', attrs={"class":"entity-row showPointer"}):
         nomor = 1
-        list = []
+        symbol = ''
         # a[nomor] = ""
         
         for list in table.findAll('td'):
@@ -75,8 +75,8 @@ for x in range(13):
                     classNama = ''.join(stable['class'])
                     seperateClassName=classNama.replace("alert-descriptionratings-","")
                     if seperateClassName != "":
-                        #seperateClassName = testing
-                        print(seperateClassName)
+                        seperateClassName = symbol
+                        print(symbol)
                     else:
                         print('not found')
            
